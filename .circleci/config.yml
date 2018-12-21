@@ -13,12 +13,14 @@ jobs:
       - image: circleci/golang:1.11
         environment:
           GO111MODULE: "ON"
+          GOFLAGS: "-mod=vendor"
     <<: *base
   go-latest:
     docker:
       - image: circleci/golang:latest
         environment:
           GO111MODULE: "ON"
+          GOFLAGS: "-mod=vendor"
     <<: *base
 
 base: &base
