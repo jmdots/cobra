@@ -19,4 +19,4 @@ test:
 
 .PHONY: vendor
 vendor:
-	go mod vendor
+	go mod vendor -v
