@@ -2,10 +2,11 @@
 
 set -xeuo pipefail
 
-go build -mod=vendor
+go build -mod=vendor .
 
-diff -u <(echo -n) <(gofmt -d -s .)
+## Build the CLI tool.
+mkdir -p ./tmp
+go build -o tmp/cobra -mod=vendor ./cobra
 
-if [ -z ${NOVET} ]; then
-  diff -u <(echo -n) <(go tool vet . 2>&1 | grep -vE 'ExampleCommand|bash_completions.*Fprint')
-fi
+## Try running the CLI tool.
+./tmp/cobra
