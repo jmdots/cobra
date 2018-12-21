@@ -1,3 +1,4 @@
+// Copyright © 2018 Joshua Mark Dotson <vulariter-git@yahoo.com>.
 // Copyright © 2015 Steve Francia <spf@spf13.com>.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,7 @@
 
 package main
 
-import "github.com/spf13/cobra/cobra/cmd"
+import "github.com/kubeteam/cobra/cobra/cmd"
 
 func main() {
 	cmd.Execute()
