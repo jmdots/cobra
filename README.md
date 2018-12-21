@@ -22,9 +22,9 @@ Many of the most widely used Go projects are built using Cobra including:
 * [nehm](https://github.com/bogem/nehm)
 * [Pouch](https://github.com/alibaba/pouch)
 
-[![Build Status](https://travis-ci.org/spf13/cobra.svg "Travis CI status")](https://travis-ci.org/spf13/cobra)
-[![CircleCI status](https://circleci.com/gh/spf13/cobra.png?circle-token=:circle-token "CircleCI status")](https://circleci.com/gh/spf13/cobra)
-[![GoDoc](https://godoc.org/github.com/spf13/cobra?status.svg)](https://godoc.org/github.com/spf13/cobra)
+[![Build Status](https://travis-ci.org/kubeteam/cobra.svg "Travis CI status")](https://travis-ci.org/kubeteam/cobra)
+[![CircleCI status](https://circleci.com/gh/kubeteam/cobra.png?circle-token=:circle-token "CircleCI status")](https://circleci.com/gh/kubeteam/cobra)
+[![GoDoc](https://godoc.org/github.com/kubeteam/cobra?status.svg)](https://godoc.org/github.com/kubeteam/cobra)
 
 # Table of Contents
 
@@ -103,7 +103,7 @@ have children commands and optionally run an action.
 
 In the example above, 'server' is the command.
 
-[More about cobra.Command](https://godoc.org/github.com/spf13/cobra#Command)
+[More about cobra.Command](https://godoc.org/github.com/kubeteam/cobra#Command)
 
 ## Flags
 
@@ -123,12 +123,12 @@ Using Cobra is easy. First, use `go get` to install the latest version
 of the library. This command will install the `cobra` generator executable
 along with the library and its dependencies:
 
-    go get -u github.com/spf13/cobra/cobra
+    go get -u github.com/kubeteam/cobra/cobra
 
 Next, include Cobra in your application:
 
 ```go
-import "github.com/spf13/cobra"
+import "github.com/kubeteam/cobra"
 ```
 
 # Getting Started
@@ -208,7 +208,7 @@ import (
   "os"
 
   homedir "github.com/mitchellh/go-homedir"
-  "github.com/spf13/cobra"
+  "github.com/kubeteam/cobra"
   "github.com/spf13/viper"
 )
 
@@ -284,7 +284,7 @@ package cmd
 import (
   "fmt"
 
-  "github.com/spf13/cobra"
+  "github.com/kubeteam/cobra"
 )
 
 func init() {
@@ -430,7 +430,7 @@ import (
   "fmt"
   "strings"
 
-  "github.com/spf13/cobra"
+  "github.com/kubeteam/cobra"
 )
 
 func main() {
@@ -597,7 +597,7 @@ package main
 import (
   "fmt"
 
-  "github.com/spf13/cobra"
+  "github.com/kubeteam/cobra"
 )
 
 func main() {

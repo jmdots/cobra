@@ -19,7 +19,7 @@ import (
 	"path"
 	"path/filepath"
 
-	"github.com/spf13/cobra"
+	"github.com/kubeteam/cobra"
 	"github.com/spf13/viper"
 )
 
@@ -33,7 +33,7 @@ and the appropriate structure for a Cobra-based CLI application.
   * If a name is provided, it will be created in the current directory;
   * If no name is provided, the current directory will be assumed;
   * If a relative path is provided, it will be created inside $GOPATH
-    (e.g. github.com/spf13/hugo);
+    (e.g. github.com/kubeteam/hugo);
   * If an absolute path is provided, it will be created;
   * If the directory already exists but is empty, it will be used.
 
@@ -144,11 +144,11 @@ import (
 	"os"
 {{if .viper}}
 	homedir "github.com/mitchellh/go-homedir"{{end}}
-	"github.com/spf13/cobra"{{if .viper}}
+	"github.com/kubeteam/cobra"{{if .viper}}
 	"github.com/spf13/viper"{{end}}
 ){{if .viper}}
 
-var cfgFile string{{end}}
+var configFile string{{end}}
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
@@ -175,24 +175,23 @@ func Execute() {
 }
 
 func init() { {{- if .viper}}
-	cobra.OnInitialize(initConfig)
+	cobra.OnInitialize(initViper)
 {{end}}
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.{{ if .viper }}
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.{{ .appName }}.yaml)"){{ else }}
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.{{ .appName }}.yaml)"){{ end }}
+	// will be global for your application.
+	rootCmd.PersistentFlags().StringVar(&configFile, "config-file", "", "config file (default is $HOME/.{{ .appName }}.yaml)")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }{{ if .viper }}
 
-// initConfig reads in config file and ENV variables if set.
-func initConfig() {
-	if cfgFile != "" {
+// initViper reads in config file and ENV variables if set.
+func initViper() {
+	if configFile != "" {
 		// Use config file from the flag.
-		viper.SetConfigFile(cfgFile)
+		viper.SetConfigFile(configFile)
 	} else {
 		// Find home directory.
 		home, err := homedir.Dir()

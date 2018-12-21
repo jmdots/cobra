@@ -19,11 +19,11 @@ import (
 	"path/filepath"
 	"unicode"
 
-	"github.com/spf13/cobra"
+	"github.com/kubeteam/cobra"
 )
 
 func init() {
-	addCmd.Flags().StringVarP(&packageName, "package", "t", "", "target package name (e.g. github.com/spf13/hugo)")
+	addCmd.Flags().StringVarP(&packageName, "package", "t", "", "target package name (e.g. github.com/kubeteam/hugo)")
 	addCmd.Flags().StringVarP(&parentName, "parent", "p", "rootCmd", "variable name of parent command for this command")
 }
 
@@ -128,7 +128,7 @@ package {{.cmdPackage}}
 import (
 	"fmt"
 
-	"github.com/spf13/cobra"
+	"github.com/kubeteam/cobra"
 )
 
 // {{.cmdName}}Cmd represents the {{.cmdName}} command
