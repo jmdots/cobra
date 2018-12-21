@@ -3,7 +3,7 @@ language: go
 matrix:
   include:
     - go: "1.11"
-      env: GO111MODULE=on
+      env: GO111MODULE=on GOFLAGS=-mod=vendor
     - go: tip
   allow_failures:
     - go: tip

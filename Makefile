@@ -1,8 +1,6 @@
 .PHONY: build
 build: test
-	go build
-	diff -u <(echo -n) <(gofmt -d -s .)
-	if [ -z ${NOVET} ]; then diff -u <(echo -n) <(go tool vet . 2>&1 | grep -vE 'ExampleCommand|bash_completions.*Fprint'); fi
+	bash .scripts/build.sh
 
 .PHONY: mod
 mod:
