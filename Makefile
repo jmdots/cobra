@@ -2,6 +2,10 @@
 build: test
 	bash .scripts/build.sh
 
+.PHONY: clean
+clean:
+	rm -rf ./tmp
+
 .PHONY: mod
 mod:
 	go mod tidy -v
@@ -15,7 +19,7 @@ spellcheck:
 
 .PHONY: test
 test:
-	PATH=${PATH}:${PWD}/bin go test -v ./...
+	bash .scripts/test.sh
 
 .PHONY: vendor
 vendor:
