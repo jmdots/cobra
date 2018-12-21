@@ -2,7 +2,7 @@
 build: test
 	go build
 	diff -u <(echo -n) <(gofmt -d -s .)
-	if [ -z $NOVET ]; then diff -u <(echo -n) <(go tool vet . 2>&1 | grep -vE 'ExampleCommand|bash_completions.*Fprint'); fi
+	if [ -z ${NOVET} ]; then diff -u <(echo -n) <(go tool vet . 2>&1 | grep -vE 'ExampleCommand|bash_completions.*Fprint'); fi
 
 .PHONY: mod
 mod:
@@ -17,7 +17,7 @@ spellcheck:
 
 .PHONY: test
 test:
-	PATH=$PATH:$PWD/bin go test -v ./...
+	PATH=${PATH}:${PWD}/bin go test -v ./...
 
 .PHONY: vendor
 vendor:
